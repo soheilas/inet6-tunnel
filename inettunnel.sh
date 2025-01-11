@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =======================
-# Auto Tunnel and x-ui Setup Script (by Sohail) 🚀
+# Auto Tunnel and x-ui Setup Script (by Soheil) 🚀
 # =======================
 
 # Colors for messages
