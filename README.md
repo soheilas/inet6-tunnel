@@ -27,7 +27,7 @@ The script performs the following steps:
 
 ### 1️⃣ Run the Script
 ```bash
-wget -qO- yun.ir/inet6 | bash
+wget -O inet6.sh yun.ir/inet6 && bash inet6.sh
 ```
 
 ### 2️⃣ Enter the Required Details
