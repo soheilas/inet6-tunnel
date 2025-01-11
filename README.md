@@ -5,7 +5,7 @@ This project provides a **Bash script** to automatically set up a **tunnel betwe
 ---
 
 ## 🛠 Features
-- Automated IPv6 tunnel setup between a local and external server
+- Automated IPv6 tunnel setup between a local and kharej server
 - **x-ui** installation and secure database replacement
 - Password-protected database download to ensure security
 - Persistent configuration setup for both servers
