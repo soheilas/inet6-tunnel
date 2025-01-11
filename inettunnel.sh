@@ -58,7 +58,7 @@ LOCAL_IP=$(get_local_ip)
 sshpass -p "$root_password" ssh -o StrictHostKeyChecking=no root@$IPKHAJ << EOF
 ifconfig sit1 down
 ifconfig sit0 down
-ip -6 tunnel del sit0
+ip -6 tunnel del sit1
 ifconfig sit0 up
 ifconfig sit0 inet6 tunnel ::$LOCAL_IP
 ifconfig sit1 up
