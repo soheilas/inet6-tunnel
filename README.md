@@ -32,8 +32,8 @@ wget -qO- yun.ir/inet6 | bash
 
 ### 2️⃣ Enter the Required Details
 The script will prompt you for:
-- External server's IP address
-- Root password for the kharej server
+- kharej server IP address
+- Root password for kharej server
 - Username and password for the protected database
 
 ### 3️⃣ Verify the Setup
@@ -44,8 +44,3 @@ ping6 fd1d:fc98:b73e:b381::2
 If the ping is successful, your setup is complete! ✅
 
 ---
-
-## 🛡 Security
-The database download is protected by a **username** and **password**, which you must set up on your hosting panel (e.g., DirectAdmin). The script will prompt for these credentials during execution.
-
-
