@@ -24,11 +24,6 @@ The script performs the following steps:
 ---
 
 ## 🚀 How to Use
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/yourusername/Auto-Tunnel-xui.git
-cd Auto-Tunnel-xui
-```
 
 ### 1️⃣ Run the Script
 ```bash
