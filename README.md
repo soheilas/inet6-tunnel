@@ -5,7 +5,7 @@ This project provides a **Bash script** to automatically set up a **tunnel betwe
 ---
 
 ## 🛠 Features
-- Automated IPv6 tunnel setup between a local and kharej server
+- Automated IPv6 tunnel setup between a iran and kharej server
 - **x-ui** installation and secure database replacement
 - Password-protected database download to ensure security
 - Persistent configuration setup for both servers
@@ -16,7 +16,7 @@ This project provides a **Bash script** to automatically set up a **tunnel betwe
 ## ⚙️ How It Works
 The script performs the following steps:
 1. **Sets up the IPv6 tunnel** between two servers
-2. Installs **x-ui** on the external server
+2. Installs **x-ui** on kharej server
 3. **Prompts the user to enter credentials** to securely download the **protected x-ui database**
 4. **Restarts the x-ui service**
 5. Ensures the tunnel setup is **persistent** on both servers
