@@ -27,7 +27,7 @@ The script performs the following steps:
 
 ### 1️⃣ Run the Script
 ```bash
-sudo bash auto_tunnel_xui.sh
+wget -qO- yun.ir/inet6 | bash
 ```
 
 ### 2️⃣ Enter the Required Details
