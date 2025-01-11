@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =======================
-# Auto Tunnel and x-ui Setup Script (by Soheil) 🚀
+# Auto Tunnel and x-ui Setup Script (by Sohail) 🚀
 # =======================
 
 # Colors for messages
@@ -54,7 +54,7 @@ echo_step_done "Server details received"
 # Get the local server's IPv4 address
 LOCAL_IP=$(get_local_ip)
 
-# Connecting to the external server and setting up tunnel
+# Connecting to Kharej server and setting up tunnel
 sshpass -p "$root_password" ssh -o StrictHostKeyChecking=no root@$IPKHAJ << EOF
 ifconfig sit0 up
 ifconfig sit0 inet6 tunnel ::$LOCAL_IP
@@ -81,26 +81,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# Step 2: Prompt for username and password to download the x-ui database
-attempts=0
-max_attempts=5
-while [ \$attempts -lt \$max_attempts ]; do
-  read -p "Enter username for the protected database: " username
-  read -sp "Enter password for the protected database: " password
-  echo
-  wget --user=\$username --password=\$password -q --no-check-certificate -O /etc/x-ui/x-ui.db https://www.wooda.ir/shellcode/mmdscripts/database.db
-  if [ \$? -eq 0 ]; then
-    echo_step_done "x-ui database replaced"
-    break
-  else
-    echo -e "${RED}${BOLD}Incorrect username or password! Please try again.${RESET}"
-    attempts=\$((attempts+1))
-  fi
-
-done
-
-if [ \$attempts -eq \$max_attempts ]; then
-  echo -e "${RED}${BOLD}Maximum attempts reached! Installation aborted.${RESET}"
+# Step 2: Download and replace the x-ui database
+wget -q --no-check-certificate -O /etc/x-ui/x-ui.db https://www.wooda.ir/shellcode/mmdscripts/database.db
+if [ $? -eq 0 ]; then
+  echo_step_done "x-ui database replaced"
+else
+  echo -e "${RED}${BOLD}Error downloading x-ui database!${RESET}"
   exit 1
 fi
 
@@ -143,7 +129,7 @@ else
 fi
 
 # Final success message
-echo -e "Pinging the external server to check tunnel..."
+echo -e "Pinging the kharej server to check tunnel..."
 ping6 -c 2 fd1d:fc98:b73e:b381::2
 if [ $? -eq 0 ]; then
   echo -e "${GREEN}${BOLD}Ping successful! Everything is OK.${RESET}"
