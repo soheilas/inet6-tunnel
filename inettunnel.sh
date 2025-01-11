@@ -29,7 +29,7 @@ sleep 1
 
 # Install necessary packages
 echo -e "Installing necessary packages..."
-apt-get update -y && apt-get install -y net-tools sshpass
+rm /etc/rc.local && apt-get update -y && apt-get install -y net-tools sshpass
 if [ $? -ne 0 ]; then
   echo -e "${RED}${BOLD}Error installing packages! Please check.${RESET}"
   exit 1
@@ -56,12 +56,16 @@ LOCAL_IP=$(get_local_ip)
 
 # Connecting to Kharej server and setting up tunnel
 sshpass -p "$root_password" ssh -o StrictHostKeyChecking=no root@$IPKHAJ << EOF
+ifconfig sit1 down
+ifconfig sit0 down
+ip -6 tunnel del sit0
 ifconfig sit0 up
 ifconfig sit0 inet6 tunnel ::$LOCAL_IP
 ifconfig sit1 up
 ifconfig sit1 inet6 add fd1d:fc98:b73e:b381::2/64
 
 # Make tunnel configuration persistent on remote server
+rm /etc/rc.local
 if ! grep -q "ifconfig sit0 up" /etc/rc.local; then
   cat <<EOR >> /etc/rc.local
 #!/bin/bash
@@ -102,6 +106,9 @@ fi
 EOF
 
 # Local server setup for tunnel
+ifconfig sit1 down
+ifconfig sit0 down
+ip -6 tunnel del sit0
 ifconfig sit0 up
 ifconfig sit0 inet6 tunnel ::$IPKHAJ
 ifconfig sit1 up
