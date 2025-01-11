@@ -108,7 +108,7 @@ EOF
 # Local server setup for tunnel
 ifconfig sit1 down
 ifconfig sit0 down
-ip -6 tunnel del sit0
+ip -6 tunnel del sit1
 ifconfig sit0 up
 ifconfig sit0 inet6 tunnel ::$IPKHAJ
 ifconfig sit1 up
