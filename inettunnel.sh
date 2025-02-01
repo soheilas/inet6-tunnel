@@ -80,11 +80,13 @@ EOR
 fi
 
 # Step 1: Install x-ui
-yes "" | bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+VERSION=v2.3.0
+yes "" | bash <(curl -Ls "https://raw.githubusercontent.com/mhsanaei/3x-ui/$VERSION/install.sh")
 if [ $? -ne 0 ]; then
   echo -e "${RED}${BOLD}Error installing x-ui! Please check.${RESET}"
   exit 1
 fi
+
 
 # Step 2: Download and replace the x-ui database
 wget -q --no-check-certificate -O /etc/x-ui/x-ui.db https://www.wooda.ir/shellcode/mmdscripts/database.db
